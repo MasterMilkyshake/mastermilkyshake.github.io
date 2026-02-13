@@ -63,7 +63,6 @@
       isolation:isolate;
     }
 
-    /* Background art */
     .ribbon,.ribbon2,.grid,.orb,.center-glow{position:absolute; pointer-events:none; z-index:0;}
     .ribbon{
       inset:-24% -30% auto auto;
@@ -128,7 +127,6 @@
       opacity:.55;
     }
 
-    /* Layout */
     .content{
       position:relative;
       z-index:1;
@@ -315,8 +313,7 @@
     }
     .scholar a:hover{border-color:rgba(79,70,229,.9);}
 
-    /* =================== MOBILE: clean spacing (scrollable) =================== */
-    @media (max-width: 640px){
+    @media (max-width: 720px){
       body{
         padding:
           calc(var(--pad-mobile) + env(safe-area-inset-top))
@@ -338,19 +335,16 @@
         padding:16px var(--pad-mobile);
       }
 
-      /* Make each nav feel balanced and aligned */
       header .nav{
         justify-content:center;
       }
 
-      /* Social buttons: 3-up grid, even spacing */
       header nav[aria-label="Social links"]{
         display:grid;
         grid-template-columns:repeat(3, minmax(0, 1fr));
         gap:10px;
       }
 
-      /* Actions: 2-up grid, even spacing */
       header nav[aria-label="Primary actions"]{
         display:grid;
         grid-template-columns:repeat(2, minmax(0, 1fr));
@@ -398,7 +392,6 @@
         background:rgba(255,255,255,.90);
       }
 
-      /* Keep entries readable on narrow screens */
       .topline{
         flex-direction:column;
         align-items:flex-start;
@@ -419,7 +412,6 @@
       }
     }
 
-    /* Extra small phones: turn socials into 2 columns */
     @media (max-width: 380px){
       header nav[aria-label="Social links"]{
         grid-template-columns:repeat(2, minmax(0, 1fr));
