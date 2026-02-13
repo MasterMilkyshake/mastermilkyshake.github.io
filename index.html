@@ -315,17 +315,16 @@
 
     @media (max-width: 720px){
       body{
-        padding:
-          calc(var(--pad-mobile) + env(safe-area-inset-top))
-          calc(var(--pad-mobile) + env(safe-area-inset-right))
-          calc(var(--pad-mobile) + env(safe-area-inset-bottom))
-          calc(var(--pad-mobile) + env(safe-area-inset-left));
-        align-items:flex-start;
+        padding:0;
+        align-items:stretch;
         overflow-y:auto;
+        display:block;
       }
 
       .sheet{
-        border-radius:20px;
+        width:100%;
+        min-height:100svh;
+        border-radius:0;
       }
 
       header{
@@ -462,8 +461,8 @@
 
             <div class="entry">
               <div class="topline">
-                <span class="title">Researcher</span>
-                <span class="time">2026 — Present</span>
+                <span class="title">Undergraduate Researcher</span>
+                <span class="time">March 2026 — Present</span>
               </div>
               <div class="subline">University of Pennsylvania Perelman School of Medicine</div>
               <div class="loc">Philadelphia, PA</div>
@@ -472,7 +471,7 @@
             <div class="entry">
               <div class="topline">
                 <span class="title">Emergency Medical Technician</span>
-                <span class="time">2026 — Present</span>
+                <span class="time">July 2025 — Present</span>
               </div>
               <div class="subline">New York City Fire Department</div>
               <div class="loc">New York, NY</div>
@@ -484,11 +483,11 @@
 
             <div class="entry">
               <div class="topline">
-                <span class="title">Haverford College</span>
+                <span class="title">University of North Carolina — Chapel Hill</span>
                 <span class="time">2025 — 2029</span>
               </div>
               <div class="subline">Bachelor of Science — Biochemistry</div>
-              <div class="loc">Haverford, PA</div>
+              <div class="loc">Chapel Hill, NC</div>
             </div>
           </div>
         </section>
