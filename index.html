@@ -264,13 +264,66 @@
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       gap: 40px;
-      align-items: center;
+      align-items: stretch;
     }
 
     .hero {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-self: stretch;
+    }
+
+    .panels {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .panel {
+      border: 1px solid var(--hair);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255, 255, 255, .85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .panel h2 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 0;
+      color: rgba(92, 99, 112, .95);
+      font-weight: 800;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--hair);
+    }
+
+    .entry {
+      padding: 14px 0;
+      border-top: none;
+    }
+
+    .entry:first-child {
+      padding-top: 14px;
+    }
+
+    .entry:last-child {
+      padding-bottom: 4px;
+    }
+
+    .profile-panel {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-panel .entry {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 28px 8px 16px;
     }
 
     .profile-pic {
@@ -301,65 +354,6 @@
       color: var(--muted);
       max-width: 40ch;
       line-height: 1.7;
-    }
-
-    .panels {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .panel {
-      border: 1px solid var(--hair);
-      border-radius: 18px;
-      padding: 16px 16px;
-      background: rgba(255, 255, 255, .85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .panel h2 {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      margin-bottom: 10px;
-      color: rgba(92, 99, 112, .95);
-      font-weight: 800;
-    }
-    
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-self: stretch;
-    }
-    
-    .hero-card {
-      border: 1px solid var(--hair);
-      border-radius: 18px;
-      padding: 24px 24px;
-      background: rgba(255, 255, 255, .85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      flex: 1;
-      min-height: 100%;
-    }
-
-    .entry {
-      padding: 14px 0;
-      border-top: 1px solid var(--hair);
-    }
-
-    .entry:first-child {
-      border-top: none;
-      padding-top: 4px;
-    }
-
-    .entry:last-child {
-      padding-bottom: 4px;
     }
 
     .topline {
@@ -502,6 +496,10 @@
         align-items: center;
       }
 
+      .profile-panel .entry {
+        padding: 20px 4px 12px;
+      }
+
       .profile-pic {
         width: clamp(132px, 42vw, 188px);
         margin-bottom: 16px;
@@ -509,8 +507,9 @@
       }
 
       h1 {
-        font-size: clamp(132px, 42vw, 188px);
+        font-size: clamp(40px, 12vw, 64px);
         margin-bottom: 10px;
+        white-space: normal;
       }
 
       .lede {
@@ -614,12 +613,16 @@
 
       <main>
         <section class="hero">
-          <div class="hero-card">
-            <img src="https://mastermilkyshake.github.io/static/profile.jpeg" alt="Portrait of Abhishek Pallepati" class="profile-pic">
-            <h1>Abhishek Pallepati</h1>
-            <p class="lede">
-              Student with interests in biophysics and biotechnology, with an emphasis on research and emergency medicine.
-            </p>
+          <div class="panel profile-panel">
+            <h2>Profile</h2>
+
+            <div class="entry">
+              <img src="https://mastermilkyshake.github.io/static/profile.jpeg" alt="Portrait of Abhishek Pallepati" class="profile-pic">
+              <h1>Abhishek Pallepati</h1>
+              <p class="lede">
+                Student with interests in biophysics and biotechnology, with an emphasis on research and emergency medicine.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -635,7 +638,7 @@
               <div class="subline">---<!-- University of Pennsylvania Perelman School of Medicine --></div>
               <div class="loc">---<!-- Philadelphia, PA --></div>
             </div>
-            
+
             <div class="entry">
               <div class="topline">
                 <span class="title">Coming soon<!-- Biophysical Researcher --></span>
