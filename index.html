@@ -19,16 +19,12 @@
       --ink: #0f1419;
       --muted: #5c6370;
       --hair: rgba(15, 20, 25, .10);
-
       --accent: #5a5adc;
       --accent-hover: #4a4acc;
-
       --radius: 22px;
       --shadow: 0 28px 70px rgba(0, 0, 0, .30);
-
       --pad: clamp(16px, 4vw, 56px);
       --pad-mobile: clamp(14px, 4vw, 22px);
-
       --sans: "DM Sans", system-ui, -apple-system, sans-serif;
     }
 
@@ -47,12 +43,12 @@
       font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
       background:
-        radial-gradient(circle at 18% 24%, rgba(99, 102, 241, .30) 0%, transparent 42%),
-        radial-gradient(circle at 82% 18%, rgba(59, 130, 246, .18) 0%, transparent 34%),
-        radial-gradient(circle at 84% 72%, rgba(0, 212, 255, .18) 0%, transparent 38%),
-        radial-gradient(circle at 22% 78%, rgba(236, 72, 153, .16) 0%, transparent 34%),
+        radial-gradient(circle at 18% 24%, rgba(122, 92, 255, .30) 0%, transparent 42%),
+        radial-gradient(circle at 82% 18%, rgba(104, 96, 255, .18) 0%, transparent 34%),
+        radial-gradient(circle at 84% 72%, rgba(145, 94, 255, .18) 0%, transparent 38%),
+        radial-gradient(circle at 22% 78%, rgba(86, 72, 220, .16) 0%, transparent 34%),
         radial-gradient(circle at 50% 50%, rgba(168, 85, 247, .10) 0%, transparent 45%),
-        linear-gradient(135deg, #0a0f1e 0%, #111827 50%, #1a1f35 100%);
+        linear-gradient(135deg, #0a0b18 0%, #101224 50%, #1a1735 100%);
       padding:
         calc(var(--pad) + env(safe-area-inset-top)) calc(var(--pad) + env(safe-area-inset-right)) calc(var(--pad) + env(safe-area-inset-bottom)) calc(var(--pad) + env(safe-area-inset-left));
       min-height: 100svh;
@@ -64,12 +60,40 @@
 
     .sheet {
       width: min(1100px, 100%);
-      background: var(--page);
+      background: linear-gradient(180deg, #fbfcff 0%, #f5f8ff 100%);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
       position: relative;
       isolation: isolate;
+    }
+
+    .sheet::before,
+    .sheet::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sheet::before {
+      background:
+        radial-gradient(circle at 12% 56%, rgba(125, 198, 255, .60) 0%, transparent 18%),
+        radial-gradient(circle at 32% 18%, rgba(171, 112, 255, .42) 0%, transparent 24%),
+        radial-gradient(circle at 56% 62%, rgba(112, 207, 255, .34) 0%, transparent 22%),
+        radial-gradient(circle at 74% 14%, rgba(255, 205, 92, .56) 0%, transparent 24%),
+        radial-gradient(circle at 96% 20%, rgba(255, 152, 96, .34) 0%, transparent 16%),
+        linear-gradient(90deg, #e44788 0%, #b06df6 26%, #86a5ff 48%, #f2c657 78%, #ff9c5f 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 67% 56%, 0 80%);
+    }
+
+    .sheet::after {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .26) 0%, rgba(255, 255, 255, .08) 34%, rgba(255, 255, 255, 0) 58%),
+        radial-gradient(circle at 42% 34%, rgba(255, 255, 255, .28) 0%, transparent 26%);
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 67% 56%, 0 80%);
+      opacity: .95;
     }
 
     .ribbon,
@@ -84,111 +108,63 @@
     }
 
     .ribbon {
-      inset: -24% -30% auto auto;
-      width: 76%;
-      height: 92%;
-      transform: rotate(11deg);
+      inset: -12% 12% auto -8%;
+      width: 70%;
+      height: 54%;
       background:
-        radial-gradient(70% 70% at 28% 32%, rgba(79, 70, 229, .60), transparent 62%),
-        radial-gradient(62% 62% at 68% 38%, rgba(0, 212, 255, .45), transparent 64%),
-        radial-gradient(68% 68% at 48% 72%, rgba(236, 72, 153, .35), transparent 60%);
-      mask-image: radial-gradient(62% 72% at 62% 48%, #000 52%, transparent 74%);
-      -webkit-mask-image: radial-gradient(62% 72% at 62% 48%, #000 52%, transparent 74%);
-      opacity: .65;
-      filter: blur(1px);
+        radial-gradient(circle at 22% 62%, rgba(118, 205, 255, .52) 0%, transparent 34%),
+        radial-gradient(circle at 40% 24%, rgba(146, 102, 255, .34) 0%, transparent 26%),
+        radial-gradient(circle at 76% 20%, rgba(255, 255, 255, .22) 0%, transparent 20%);
+      filter: blur(52px);
+      opacity: .98;
     }
 
     .ribbon2 {
-      inset: auto auto -24% -30%;
-      width: 76%;
-      height: 92%;
-      transform: rotate(-11deg);
+      inset: -10% -8% auto 56%;
+      width: 48%;
+      height: 42%;
       background:
-        radial-gradient(70% 70% at 72% 68%, rgba(79, 70, 229, .55), transparent 62%),
-        radial-gradient(62% 62% at 32% 62%, rgba(0, 212, 255, .40), transparent 64%),
-        radial-gradient(68% 68% at 52% 30%, rgba(236, 72, 153, .30), transparent 60%);
-      mask-image: radial-gradient(62% 72% at 38% 52%, #000 52%, transparent 74%);
-      -webkit-mask-image: radial-gradient(62% 72% at 38% 52%, #000 52%, transparent 74%);
-      opacity: .28;
-      filter: blur(1px);
+        radial-gradient(circle at 30% 28%, rgba(255, 202, 90, .44) 0%, transparent 40%),
+        radial-gradient(circle at 82% 36%, rgba(255, 148, 96, .32) 0%, transparent 32%),
+        radial-gradient(circle at 18% 70%, rgba(111, 189, 255, .20) 0%, transparent 30%);
+      filter: blur(44px);
+      opacity: .92;
     }
 
     .grid {
-      inset: 0;
+      inset: 54% 0 0 0;
       background-image:
-        linear-gradient(to right, rgba(230, 237, 245, .45) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(230, 237, 245, .45) 1px, transparent 1px);
-      background-size: 100px 100px;
-      opacity: .18;
-      mask-image: radial-gradient(65% 65% at 40% 35%, #000 45%, transparent 75%);
-      -webkit-mask-image: radial-gradient(65% 65% at 40% 35%, #000 45%, transparent 75%);
+        linear-gradient(to right, rgba(176, 186, 210, .22) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(176, 186, 210, .14) 1px, transparent 1px);
+      background-size: 18% 100%, 100% 140px;
+      opacity: .58;
+      mask-image: linear-gradient(to top, rgba(0, 0, 0, .96), rgba(0, 0, 0, .72) 56%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, .96), rgba(0, 0, 0, .72) 56%, transparent 100%);
     }
 
     .orb {
-      border-radius: 50%;
-      filter: blur(80px);
-    }
-
-    .orb1 {
-      width: 520px;
-      height: 520px;
-      background: radial-gradient(circle, rgba(79, 70, 229, .55), transparent 70%);
-      top: -18%;
-      right: -12%;
-      opacity: .14;
-    }
-
-    .orb2 {
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(circle, rgba(236, 72, 153, .40), transparent 70%);
-      top: 52%;
-      right: 10%;
-      opacity: .10;
-    }
-
-    .orb3 {
-      width: 340px;
-      height: 340px;
-      background: radial-gradient(circle, rgba(34, 211, 238, .32), transparent 72%);
-      bottom: 8%;
-      left: -8%;
-      opacity: .10;
-    }
-
-    .orb4 {
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(139, 92, 246, .24), transparent 72%);
-      top: 18%;
-      left: 38%;
-      opacity: .08;
-      filter: blur(70px);
+      display: none;
     }
 
     .center-glow {
-      top: 18%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      height: 62%;
+      inset: 6% 10% auto 6%;
+      height: 48%;
       background:
-        radial-gradient(ellipse at 50% 50%, rgba(79, 70, 229, .24) 0%, transparent 60%),
-        radial-gradient(ellipse at 30% 60%, rgba(0, 212, 255, .18) 0%, transparent 55%),
-        radial-gradient(ellipse at 70% 40%, rgba(236, 72, 153, .16) 0%, transparent 55%);
-      filter: blur(60px);
-      opacity: .60;
+        radial-gradient(circle at 34% 58%, rgba(103, 202, 255, .54) 0%, rgba(103, 202, 255, .28) 18%, transparent 38%),
+        radial-gradient(circle at 36% 18%, rgba(173, 109, 255, .36) 0%, transparent 30%),
+        radial-gradient(circle at 74% 14%, rgba(255, 214, 102, .24) 0%, transparent 24%);
+      filter: blur(46px);
+      opacity: .98;
     }
 
     .aura {
-      inset: 10% 18% auto 6%;
-      width: 46%;
-      height: 44%;
+      inset: 0;
       background:
-        radial-gradient(circle at 28% 42%, rgba(99, 102, 241, .18), transparent 45%),
-        radial-gradient(circle at 64% 36%, rgba(6, 182, 212, .12), transparent 40%);
-      filter: blur(52px);
-      opacity: .55;
+        linear-gradient(115deg, rgba(228, 71, 136, .22) 0%, rgba(176, 109, 246, .12) 20%, rgba(132, 165, 255, .10) 42%, rgba(255, 255, 255, 0) 62%),
+        radial-gradient(circle at 18% 22%, rgba(255, 255, 255, .16) 0%, transparent 18%);
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 67% 56%, 0 80%);
+      filter: blur(18px);
+      opacity: .92;
     }
 
     .content {
@@ -280,12 +256,15 @@
     }
 
     .panel {
-      border: 1px solid var(--hair);
+      border: 1px solid rgba(15, 20, 25, .08);
       border-radius: 18px;
       padding: 16px;
-      background: rgba(255, 255, 255, .85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, .78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .62),
+        0 12px 34px rgba(90, 90, 220, .06);
     }
 
     .panel h2 {
@@ -453,6 +432,12 @@
         border-radius: 0;
       }
 
+      .sheet::before,
+      .sheet::after,
+      .aura {
+        clip-path: polygon(0 0, 100% 0, 100% 34%, 60% 46%, 0 64%);
+      }
+
       header {
         flex-direction: column;
         align-items: stretch;
@@ -526,7 +511,7 @@
       .panel {
         padding: 16px;
         border-radius: 18px;
-        background: rgba(255, 255, 255, .90);
+        background: rgba(255, 255, 255, .82);
       }
 
       .topline {
@@ -551,19 +536,27 @@
         justify-content: center;
       }
 
-      .orb1 {
-        top: -10%;
-        right: -18%;
+      .ribbon {
+        inset: -8% -8% auto -18%;
+        width: 88%;
+        height: 42%;
       }
 
-      .orb2 {
-        right: -4%;
-        top: 60%;
+      .ribbon2 {
+        inset: -8% -18% auto 48%;
+        width: 56%;
+        height: 34%;
       }
 
-      .orb3 {
-        left: -16%;
-        bottom: 18%;
+      .center-glow {
+        inset: 4% -8% auto -4%;
+        height: 34%;
+      }
+
+      .grid {
+        inset: 46% 0 0 0;
+        background-size: 24% 100%, 100% 120px;
+        opacity: .44;
       }
     }
 
@@ -594,6 +587,8 @@
     <div class="orb orb2"></div>
     <div class="orb orb3"></div>
     <div class="orb orb4"></div>
+    <div class="orb orb5"></div>
+    <div class="orb orb6"></div>
     <div class="center-glow"></div>
     <div class="aura"></div>
 
@@ -632,20 +627,20 @@
 
             <div class="entry">
               <div class="topline">
-                <span class="title">Coming soon<!-- Biophysical Researcher --></span>
-                <span class="time">---<!-- May 2026 — Present --></span>
+                <span class="title">Coming soon</span>
+                <span class="time">---</span>
               </div>
-              <div class="subline">---<!-- University of Pennsylvania Perelman School of Medicine --></div>
-              <div class="loc">---<!-- Philadelphia, PA --></div>
+              <div class="subline">---</div>
+              <div class="loc">---</div>
             </div>
 
             <div class="entry">
               <div class="topline">
-                <span class="title">Coming soon<!-- Biophysical Researcher --></span>
-                <span class="time">---<!-- May 2026 — Present --></span>
+                <span class="title">Coming soon</span>
+                <span class="time">---</span>
               </div>
-              <div class="subline">---<!-- University of Pennsylvania Perelman School of Medicine --></div>
-              <div class="loc">---<!-- Philadelphia, PA --></div>
+              <div class="subline">---</div>
+              <div class="loc">---</div>
             </div>
 
             <div class="entry">
@@ -675,11 +670,11 @@
 
       <footer>
         <div class="pubs">
-          <strong>Coming soon<!-- Selected publication --></strong> — <!-- Paper title, Journal, YYYY -->
+          <strong>Coming soon</strong> —
         </div>
         <div class="scholar">
-          <span><!-- Explore more --></span>
-          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer"><!-- Google Scholar --></a>
+          <span></span>
+          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer"></a>
         </div>
       </footer>
     </div>
