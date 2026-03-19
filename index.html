@@ -262,7 +262,7 @@
     main {
       padding: clamp(22px, 3vw, 44px) var(--pad);
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 40px;
       align-items: center;
     }
@@ -287,31 +287,32 @@
     }
 
     h1 {
-      font-size: clamp(38px, 4.8vw, 64px);
+      font-size: clamp(30px, 4.2vw, 44px);
       font-weight: 750;
       letter-spacing: -0.04em;
       color: var(--ink);
       line-height: 1.02;
       margin-bottom: 14px;
+      white-space: nowrap;
     }
 
     .lede {
-      font-size: clamp(15px, 1.4vw, 18px);
+      font-size: clamp(14.5px, 1.4vw, 17.5px);
       color: var(--muted);
-      max-width: 42ch;
+      max-width: 40ch;
       line-height: 1.7;
     }
 
     .panels {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 18px;
     }
 
     .panel {
       border: 1px solid var(--hair);
       border-radius: 18px;
-      padding: 18px 18px;
+      padding: 16px 16px;
       background: rgba(255, 255, 255, .85);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -344,7 +345,7 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 16px;
+      gap: 14px;
       font-size: 14px;
       font-weight: 750;
       color: var(--ink);
