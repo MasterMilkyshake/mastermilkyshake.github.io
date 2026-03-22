@@ -294,16 +294,17 @@
     }
 
     .profile-pic {
-      width: clamp(148px, 22vw, 240px);
-      aspect-ratio: 1 / 1;
+      width: 200px;
+      height: 200px;
       object-fit: cover;
       display: block;
+      margin: 0 0 18px 0;
       border: none;
       border-radius: 24px;
-      margin-bottom: 18px;
       box-shadow:
         0 18px 42px rgba(15, 20, 25, .16),
         0 2px 10px rgba(15, 20, 25, .06);
+      flex-shrink: 0;
     }
 
     h1 {
