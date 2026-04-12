@@ -5,26 +5,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Abhishek Pallepati</title>
-
-  <link rel="icon" href="https://mastermilkyshake.github.io/static/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link rel="icon" href="https://mastermilkyshake.github.io/static/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
   <style>
     :root {
-      --bg: #0f172a;
-      --page: #ffffff;
-      --ink: #0f1419;
-      --muted: #5c6370;
-      --hair: rgba(15, 20, 25, .10);
+      --bg: #f6f9fc;
+      --surface: #ffffff;
+      --surface-soft: rgba(255, 255, 255, .82);
+      --ink: #0a2540;
+      --muted: #425466;
+      --line: rgba(10, 37, 64, .11);
       --accent: #5a5adc;
-      --accent-hover: #4a4acc;
-      --radius: 22px;
-      --shadow: 0 28px 70px rgba(0, 0, 0, .30);
-      --pad: clamp(16px, 4vw, 56px);
-      --pad-mobile: clamp(14px, 4vw, 22px);
-      --sans: "DM Sans", system-ui, -apple-system, sans-serif;
+      --accent-deep: #4747c7;
+      --cyan: #0a8cff;
+      --mint: #d8f5f1;
+      --navy: #0a2540;
+      --navy-soft: #102d4c;
+      --shadow: 0 28px 60px rgba(10, 37, 64, .10);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+      --display: "Sora", "Segoe UI", sans-serif;
+      --sans: "Manrope", "Segoe UI", sans-serif;
     }
 
     * {
@@ -33,650 +40,613 @@
       padding: 0;
     }
 
-    html,
-    body {
-      height: 100%;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      min-height: 100vh;
       font-family: var(--sans);
-      -webkit-font-smoothing: antialiased;
+      color: var(--ink);
       background:
-        radial-gradient(circle at 18% 24%, rgba(122, 92, 255, .30) 0%, transparent 42%),
-        radial-gradient(circle at 82% 18%, rgba(104, 96, 255, .18) 0%, transparent 34%),
-        radial-gradient(circle at 84% 72%, rgba(145, 94, 255, .18) 0%, transparent 38%),
-        radial-gradient(circle at 22% 78%, rgba(86, 72, 220, .16) 0%, transparent 34%),
-        radial-gradient(circle at 50% 50%, rgba(168, 85, 247, .10) 0%, transparent 45%),
-        linear-gradient(135deg, #0a0b18 0%, #101224 50%, #1a1735 100%);
-      padding:
-        calc(var(--pad) + env(safe-area-inset-top)) calc(var(--pad) + env(safe-area-inset-right)) calc(var(--pad) + env(safe-area-inset-bottom)) calc(var(--pad) + env(safe-area-inset-left));
-      min-height: 100svh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        radial-gradient(circle at 8% 12%, rgba(90, 90, 220, .34) 0%, transparent 34%),
+        radial-gradient(circle at 88% 14%, rgba(80, 170, 255, .24) 0%, transparent 34%),
+        radial-gradient(circle at 18% 86%, rgba(90, 90, 220, .18) 0%, transparent 30%),
+        radial-gradient(circle at 84% 88%, rgba(90, 196, 255, .18) 0%, transparent 30%),
+        linear-gradient(180deg, #dfe7ff 0%, #e5eeff 52%, #eaf4ff 100%);
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    .sheet {
-      width: min(1100px, 100%);
-      background: linear-gradient(180deg, #fbfcff 0%, #f5f8ff 100%);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-      isolation: isolate;
-    }
-
-    .sheet::before,
-    .sheet::after {
+    body::before {
       content: "";
       position: absolute;
       inset: 0;
+      background:
+        linear-gradient(135deg, rgba(90, 90, 220, .10) 0%, rgba(255, 255, 255, 0) 44%, rgba(80, 170, 255, .10) 100%);
       pointer-events: none;
       z-index: 0;
     }
 
-    .sheet::before {
-      background:
-        radial-gradient(circle at 12% 56%, rgba(125, 198, 255, .60) 0%, transparent 18%),
-        radial-gradient(circle at 32% 18%, rgba(171, 112, 255, .42) 0%, transparent 24%),
-        radial-gradient(circle at 56% 62%, rgba(112, 207, 255, .34) 0%, transparent 22%),
-        radial-gradient(circle at 74% 14%, rgba(255, 205, 92, .56) 0%, transparent 24%),
-        radial-gradient(circle at 96% 20%, rgba(255, 152, 96, .34) 0%, transparent 16%),
-        linear-gradient(90deg, #e44788 0%, #b06df6 26%, #86a5ff 48%, #f2c657 78%, #ff9c5f 100%);
-      clip-path: polygon(0 0, 100% 0, 100% 45%, 67% 56%, 0 80%);
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .sheet::after {
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, .26) 0%, rgba(255, 255, 255, .08) 34%, rgba(255, 255, 255, 0) 58%),
-        radial-gradient(circle at 42% 34%, rgba(255, 255, 255, .28) 0%, transparent 26%);
-      clip-path: polygon(0 0, 100% 0, 100% 45%, 67% 56%, 0 80%);
-      opacity: .95;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    .ribbon,
-    .ribbon2,
-    .center-glow,
-    .aura {
-      position: absolute;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .ribbon {
-      inset: -12% 12% auto -8%;
-      width: 70%;
-      height: 54%;
-      background:
-        radial-gradient(circle at 22% 62%, rgba(118, 205, 255, .52) 0%, transparent 34%),
-        radial-gradient(circle at 40% 24%, rgba(146, 102, 255, .34) 0%, transparent 26%),
-        radial-gradient(circle at 76% 20%, rgba(255, 255, 255, .22) 0%, transparent 20%);
-      filter: blur(52px);
-      opacity: .98;
-    }
-
-    .ribbon2 {
-      inset: -10% -8% auto 56%;
-      width: 48%;
-      height: 42%;
-      background:
-        radial-gradient(circle at 30% 28%, rgba(255, 202, 90, .44) 0%, transparent 40%),
-        radial-gradient(circle at 82% 36%, rgba(255, 148, 96, .32) 0%, transparent 32%),
-        radial-gradient(circle at 18% 70%, rgba(111, 189, 255, .20) 0%, transparent 30%);
-      filter: blur(44px);
-      opacity: .92;
-    }
-
-    .center-glow {
-      inset: 6% 10% auto 6%;
-      height: 48%;
-      background:
-        radial-gradient(circle at 34% 58%, rgba(103, 202, 255, .54) 0%, rgba(103, 202, 255, .28) 18%, transparent 38%),
-        radial-gradient(circle at 36% 18%, rgba(173, 109, 255, .36) 0%, transparent 30%),
-        radial-gradient(circle at 74% 14%, rgba(255, 214, 102, .24) 0%, transparent 24%);
-      filter: blur(46px);
-      opacity: .98;
-    }
-
-    .aura {
-      inset: 0;
-      background:
-        linear-gradient(115deg, rgba(228, 71, 136, .22) 0%, rgba(176, 109, 246, .12) 20%, rgba(132, 165, 255, .10) 42%, rgba(255, 255, 255, 0) 62%),
-        radial-gradient(circle at 18% 22%, rgba(255, 255, 255, .16) 0%, transparent 18%);
-      clip-path: polygon(0 0, 100% 0, 100% 45%, 67% 56%, 0 80%);
-      filter: blur(18px);
-      opacity: .92;
-    }
-
-    .content {
+    .page {
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      min-height: min(760px, 100%);
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0 56px;
     }
 
-    header {
+    .site-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      gap: 16px;
-      padding: 20px var(--pad);
-      border-bottom: 1px solid var(--hair);
-      background: rgba(255, 255, 255, .92);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      gap: 18px;
+      width: fit-content;
+      margin: 0 auto 28px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255, 255, 255, .84);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 18px 36px rgba(10, 37, 64, .06);
     }
 
     .nav {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      align-items: center;
+      gap: 10px;
+      justify-content: center;
     }
 
-    .btn {
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--hair);
-      background: rgba(255, 255, 255, .78);
-      color: var(--ink);
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-      min-height: 40px;
+    .nav-link,
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 700;
       white-space: nowrap;
+      transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
     }
 
-    .btn:hover {
-      border-color: rgba(79, 70, 229, .45);
-      background: rgba(79, 70, 229, .06);
+    .nav-link {
+      background: rgba(255, 255, 255, .72);
     }
 
-    .btn:active {
-      transform: translateY(0);
+    .button {
+      background: #ffffff;
     }
 
-    .btn:focus-visible {
-      outline: 3px solid rgba(79, 70, 229, .35);
-      outline-offset: 2px;
+    .button.primary {
+      color: #ffffff;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
     }
 
-    .btn.primary {
-      background: linear-gradient(180deg, #5a5adc 0%, #4a4acc 100%);
-      border-color: rgba(90, 90, 220, .75);
-      color: #fff;
-    }
-
-    .btn.primary:hover {
-      background: linear-gradient(180deg, #4a4acc 0%, #3a3abb 100%);
-    }
-
-    main {
-      padding: clamp(22px, 3vw, 44px) var(--pad);
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 40px;
-      align-items: stretch;
+    .nav-link:hover,
+    .button:hover {
+      border-color: rgba(99, 91, 255, .28);
+      box-shadow: 0 0 0 1px rgba(99, 91, 255, .08);
     }
 
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-self: stretch;
-    }
-
-    .panels {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .panel {
-      border: 1px solid rgba(15, 20, 25, .08);
-      border-radius: 18px;
-      padding: 16px;
-      background: rgba(255, 255, 255, .78);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, .62),
-        0 12px 34px rgba(90, 90, 220, .06);
-    }
-
-    .panel h2 {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      margin-bottom: 0;
-      color: rgba(92, 99, 112, .95);
-      font-weight: 800;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--hair);
-    }
-
-    .entry {
-      padding: 14px 0;
-      border-top: none;
-    }
-
-    .panel h2 + .entry,
-    .entry + .entry {
-      border-top: 1px solid var(--hair);
-    }
-
-    .entry:first-child {
-      padding-top: 14px;
-    }
-
-    .entry:last-child {
-      padding-bottom: 4px;
-    }
-
-    .profile-panel {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .profile-panel .entry {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: minmax(250px, 330px) minmax(0, 1.2fr);
+      align-items: center;
+      gap: 56px;
+      padding: 48px 56px;
+      position: relative;
       text-align: left;
-      padding: 28px 8px 16px;
-      border-top: none;
+      max-width: 1000px;
+      margin: 0 auto 28px;
+      border: 1px solid rgba(255, 255, 255, .92);
+      border-radius: 34px;
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 22px 50px rgba(10, 37, 64, .07);
+      overflow: hidden;
     }
 
-    .profile-pic {
-      width: 240px !important;
-      min-width: 240px !important;
-      max-width: 240px !important;
-      height: 240px !important;
-      min-height: 240px !important;
-      max-height: 240px !important;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-      margin: 0 0 18px 0;
-      border: none;
-      border-radius: 24px;
-      box-shadow:
-        0 18px 42px rgba(15, 20, 25, .16),
-        0 2px 10px rgba(15, 20, 25, .06);
-      flex: 0 0 240px;
-      align-self: flex-start;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: auto -12% -28% auto;
+      transform: none;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(99, 91, 255, .12) 0%, rgba(10, 140, 255, .08) 42%, rgba(255, 255, 255, 0) 74%);
+      filter: blur(16px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 28%);
+      z-index: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      letter-spacing: -.04em;
     }
 
     h1 {
-      font-size: clamp(30px, 4.2vw, 44px);
-      font-weight: 750;
-      letter-spacing: -0.04em;
-      color: var(--ink);
-      line-height: 1.02;
-      margin-bottom: 14px;
+      max-width: none;
+      font-size: clamp(2.25rem, 3.55vw, 3.7rem);
+      line-height: .92;
+      margin-bottom: 0;
+      color: #09192b;
       white-space: nowrap;
     }
 
-    .lede {
-      font-size: clamp(14px, 1.4vw, 17px);
-      color: var(--muted);
+    .hero-copy p {
       max-width: 40ch;
+      color: #66778b;
+      font-size: clamp(16px, 1.15vw, 17px);
+      line-height: 1.68;
+      margin: 0;
+      text-align: left;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      padding-top: 0;
+    }
+
+    .hero-card {
+      width: min(330px, 100%);
+      margin: 0;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .88);
+      box-shadow: 0 18px 34px rgba(10, 37, 64, .08);
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      padding-top: 0;
+      padding-right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .section {
+      padding: 0 0 72px;
+    }
+
+    .card p,
+    .list li {
+      color: #667085;
+      font-size: clamp(16px, 1.15vw, 17px);
       line-height: 1.7;
     }
 
-    .topline {
+    .cards {
+      display: grid;
+      gap: 18px;
+    }
+
+    .cards.three {
+      grid-template-columns: 1.4fr .8fr .8fr;
+    }
+
+    .cards.split-top {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      align-items: stretch;
+    }
+
+    .cards.split-bottom {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      align-items: stretch;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(226, 232, 240, .9);
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 14px 28px rgba(10, 37, 64, .04);
+    }
+
+    .card h3 {
+      font-size: 26px;
+      line-height: 1.04;
+      margin-bottom: 10px;
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .list li {
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .pub-date {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .list li:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .list strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+
+    .certs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .cert {
+      padding: 10px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+
+    .panel-label {
+      color: #6b7280;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .panel-divider {
+      height: 1px;
+      background: rgba(10, 37, 64, .10);
+      margin-bottom: 22px;
+    }
+
+    .resume-entry {
+      display: grid;
+      gap: 10px;
+    }
+
+    .resume-stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .resume-stack .resume-entry+.resume-entry {
+      padding-top: 20px;
+      border-top: 1px solid rgba(10, 37, 64, .10);
+    }
+
+    .resume-head {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 14px;
-      font-size: 14px;
-      font-weight: 750;
-      color: var(--ink);
-      line-height: 1.4;
+      gap: 18px;
+      align-items: start;
     }
 
-    .topline .title {
-      flex: 1;
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .resume-head h3 {
+      font-size: clamp(16px, 1.15vw, 17px);
+      line-height: 1.16;
+      margin-bottom: 0;
       white-space: nowrap;
     }
 
-    .time {
-      font-size: 13px;
-      font-weight: 500;
-      color: rgba(92, 99, 112, .95);
+    .resume-date {
+      color: #6b7280;
+      font-size: 14px;
+      font-weight: 600;
       white-space: nowrap;
     }
 
-    .subline {
-      font-size: 14px;
-      color: rgba(92, 99, 112, .95);
-      margin-top: 6px;
+    .resume-sub {
+      color: #667085;
+      font-size: 15px;
       line-height: 1.45;
     }
 
-    .loc {
-      font-size: 12px;
-      color: rgba(138, 144, 162, 1);
-      margin-top: 4px;
+    .resume-loc {
+      color: #8b97ab;
+      font-size: 13px;
+      line-height: 1.45;
     }
 
-    footer {
-      border-top: 1px solid var(--hair);
-      padding: 16px var(--pad);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      font-size: 14px;
-      background: rgba(255, 255, 255, .92);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
+    @media (max-width: 1024px) {
 
-    .pubs {
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .pubs strong {
-      color: var(--ink);
-      font-weight: 800;
-    }
-
-    .scholar {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      white-space: nowrap;
-      color: var(--muted);
-    }
-
-    .scholar a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 800;
-      border-bottom: 1px solid rgba(79, 70, 229, .35);
-      padding-top: 1px;
-      padding-bottom: 1px;
-    }
-
-    .scholar a:hover {
-      border-color: rgba(79, 70, 229, .9);
-    }
-
-    @media (max-width: 720px) {
-      body {
-        padding: 0;
-        align-items: stretch;
-        overflow-y: auto;
-        display: block;
-      }
-
-      .sheet {
-        width: 100%;
-        min-height: 100svh;
-        border-radius: 0;
-      }
-
-      .sheet::before,
-      .sheet::after,
-      .aura {
-        clip-path: polygon(0 0, 100% 0, 100% 34%, 60% 46%, 0 64%);
-      }
-
-      header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 14px;
-        padding: 16px var(--pad-mobile);
-      }
-
-      header .nav {
-        justify-content: center;
-      }
-
-      header nav[aria-label="Social links"] {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      header nav[aria-label="Primary actions"] {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .btn {
-        width: 100%;
-        min-height: 46px;
-        padding: 12px 14px;
-        border-radius: 14px;
-        font-size: 14px;
-      }
-
-      main {
+      .hero,
+      .cards.three,
+      .cards.split-top,
+      .cards.split-bottom {
         grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 18px var(--pad-mobile) 16px;
-        align-items: start;
       }
 
       .hero {
+        gap: 26px;
+        padding: 28px 24px;
         text-align: center;
-        align-items: center;
+        border-radius: 28px;
       }
 
-      .profile-panel .entry {
-        padding: 20px 4px 12px;
-        align-items: center;
-        text-align: center;
+      .section {
+        padding: 0 0 54px;
       }
 
-      .profile-pic {
-        width: 240px !important;
-        min-width: 240px !important;
-        max-width: 240px !important;
-        height: 240px !important;
-        min-height: 240px !important;
-        max-height: 240px !important;
-        aspect-ratio: 1 / 1;
-        display: block;
-        margin: 0 auto 16px auto;
-        border-radius: 22px;
-        align-self: center;
-        flex: 0 0 240px;
-      }
-
-      h1 {
-        font-size: clamp(30px, 12vw, 44px);
-        margin-bottom: 10px;
-        white-space: normal;
-      }
-
-      .panel h2 {
-        text-align: center;
-      }
-
-      .lede {
-        margin-inline: auto;
-        max-width: 56ch;
-        font-size: 15px;
-        line-height: 1.65;
-      }
-
-      .panels {
-        gap: 12px;
-      }
-
-      .panel {
-        padding: 16px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, .82);
-      }
-
-      .topline {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-
-      .time {
-        order: 2;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 10px;
-        padding: 14px var(--pad-mobile);
-        align-items: center;
-        text-align: center;
-      }
-
-      .scholar {
+      .hero-visual {
         justify-content: center;
       }
 
-      .ribbon {
-        inset: -8% -8% auto -18%;
-        width: 88%;
-        height: 42%;
+      .hero-card {
+        margin: 0 auto;
       }
 
-      .ribbon2 {
-        inset: -8% -18% auto 48%;
-        width: 56%;
-        height: 34%;
+      .hero-copy {
+        align-items: center;
+        padding-right: 0;
       }
 
-      .center-glow {
-        inset: 4% -8% auto -4%;
-        height: 34%;
+      .hero-copy p {
+        text-align: center;
+        max-width: 38ch;
       }
-    }
 
-    @media (max-width: 380px) {
-      header nav[aria-label="Social links"] {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .profile-photo {
+        aspect-ratio: 1 / 1;
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .btn {
-        transition: none;
+    @media (max-width: 720px) {
+      html {
+        scroll-behavior: auto;
       }
 
-      .btn:hover {
-        transform: none;
+      .page {
+        width: min(var(--max), calc(100% - 18px));
+        padding-top: 12px;
+      }
+
+      .profile-photo {
+        aspect-ratio: 1 / 1;
+      }
+
+      .section {
+        padding: 0 0 54px;
+      }
+
+      .site-header {
+        width: fit-content;
+        max-width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+      }
+
+      .nav {
+        width: auto;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .nav-link,
+      .button {
+        width: auto;
+        flex: 0 0 auto;
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+
+      .hero {
+        gap: 20px;
+        padding: 22px 18px;
+        margin-bottom: 20px;
+      }
+
+      .hero-card {
+        width: min(240px, 100%);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 11vw, 2.8rem);
+        white-space: normal;
+      }
+
+      .hero-copy p {
+        max-width: 34ch;
+        font-size: 16px;
+      }
+
+      .resume-head h3 {
+        white-space: nowrap;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .panel-label {
+        font-size: 11px;
+      }
+
+      .resume-sub {
+        font-size: 14px;
+      }
+
+      .resume-loc {
+        font-size: 12px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="sheet">
-    <div class="ribbon"></div>
-    <div class="ribbon2"></div>
-    <div class="center-glow"></div>
-    <div class="aura"></div>
-
-    <div class="content">
-      <header>
-        <nav class="nav" aria-label="Social links">
-          <a class="btn" href="https://www.youtube.com/@AbhishekPallepati" target="_blank" rel="noreferrer">YouTube</a>
-          <a class="btn" href="https://www.linkedin.com/in/abhishekpallepati/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/MasterMilkyshake" target="_blank" rel="noreferrer">GitHub</a>
-        </nav>
-
-        <nav class="nav" aria-label="Primary actions">
-          <a class="btn" href="https://mastermilkyshake.github.io/static/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-          <a class="btn primary" href="mailto:apallepati@haverford.edu">Contact</a>
-        </nav>
-      </header>
-
-      <main>
-        <section class="hero">
-          <div class="panel profile-panel">
-            <h2>Profile</h2>
-
-            <div class="entry">
-              <img src="https://mastermilkyshake.github.io/static/profile.jpeg" alt="Portrait of Abhishek Pallepati" class="profile-pic">
-              <h1>Abhishek Pallepati</h1>
-              <p class="lede">
-                Student with interests in biophysics and biotechnology, with an emphasis on research and emergency medicine.
-              </p>
-            </div>
+  <div class="page">
+    <header class="site-header">
+      <nav class="nav" aria-label="Section navigation">
+        <a class="nav-link" href="https://www.youtube.com/@AbhishekPallepati" target="_blank"
+          rel="noreferrer">YouTube</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/abhishekpallepati/" target="_blank"
+          rel="noreferrer">LinkedIn</a>
+        <a class="nav-link" href="https://github.com/MasterMilkyshake" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="nav-link" href="https://mastermilkyshake.github.io/static/resume.pdf" target="_blank"
+          rel="noreferrer">Resume</a>
+        <a class="button primary" href="mailto:apallepati@haverford.edu">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-visual">
+          <div class="hero-card">
+            <img src="https://mastermilkyshake.github.io/static/profile.jpeg" alt="Portrait of Abhishek Pallepati"
+              class="profile-photo" />
           </div>
-        </section>
-
-        <section class="panels">
-          <div class="panel">
-            <h2>Experience</h2>
-
-            <div class="entry">
-              <div class="topline">
-                <span class="title">Coming soon</span>
-                <span class="time">---</span>
-              </div>
-              <div class="subline">---</div>
-              <div class="loc">---</div>
-            </div>
-
-            <div class="entry">
-              <div class="topline">
-                <span class="title">Coming soon</span>
-                <span class="time">---</span>
-              </div>
-              <div class="subline">---</div>
-              <div class="loc">---</div>
-            </div>
-
-            <div class="entry">
-              <div class="topline">
-                <span class="title">Emergency Medical Technician</span>
-                <span class="time">Nov 2025 — Present</span>
-              </div>
-              <div class="subline">New York City Fire Department</div>
-              <div class="loc">New York, NY</div>
-            </div>
-          </div>
-
-          <div class="panel">
-            <h2>Education</h2>
-
-            <div class="entry">
-              <div class="topline">
-                <span class="title">Haverford College</span>
-                <span class="time">2025 — 2029</span>
-              </div>
-              <div class="subline">Bachelor of Science — Biophysics</div>
-              <div class="loc">Haverford, PA</div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <div class="pubs">
-          <strong>Coming soon</strong> —
         </div>
-        <div class="scholar">
-          <span></span>
-          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer"></a>
+        <div class="hero-copy">
+          <h1>Abhishek Pallepati</h1>
+          <p>
+            Student interested in biophysics and biotechnology, with an emphasis on preventive medicine through
+            pediatric genetics and emergency medicine through nanoparticle therapeutics.
+          </p>
         </div>
-      </footer>
-    </div>
+      </section>
+      <section id="experience" class="section">
+        <div class="cards split-top">
+          <article class="card">
+            <div class="panel-label">Experience</div>
+            <div class="panel-divider"></div>
+            <div class="resume-stack">
+              <div class="resume-entry">
+                <div class="resume-head">
+                  <h3>Research Intern</h3>
+                </div>
+                <div class="resume-sub">University of Pennsylvania</div>
+                <div class="resume-loc">LNP therapeutics</div>
+              </div>
+              <div class="resume-entry">
+                <div class="resume-head">
+                  <h3>Emergency Medical Technician</h3>
+                  <div class="resume-date">Nov 2025 — Present</div>
+                </div>
+                <div class="resume-sub">New York City Fire Department</div>
+                <div class="resume-loc">New York, NY</div>
+              </div>
+              <div class="resume-entry">
+                <div class="resume-head">
+                  <h3>Intern</h3>
+                </div>
+                <div class="resume-sub">Eli Lilly and Company</div>
+                <div class="resume-loc">Therapeutic development</div>
+              </div>
+            </div>
+          </article>
+          <article id="publications" class="card">
+            <div class="panel-label">Publications</div>
+            <div class="panel-divider"></div>
+            <ul class="list">
+              <li>
+                <strong>Coming Soon</strong>
+                <span class="pub-date">MM-DD-YYYY</span>
+              </li>
+              <li>
+                <strong>Coming Soon</strong>
+                <span class="pub-date">MM-DD-YYYY</span>
+              </li>
+              <li>
+                <strong>Coming Soon</strong>
+                <span class="pub-date">MM-DD-YYYY</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+        <div class="cards split-bottom" style="margin-top: 18px;">
+          <article id="certifications" class="card">
+            <div class="panel-label">Certifications</div>
+            <div class="panel-divider"></div>
+            <div class="certs">
+              <span class="cert">EMT</span>
+              <span class="cert">BLS</span>
+              <span class="cert">BLS-I</span>
+              <span class="cert">ACLS</span>
+              <span class="cert">PALS</span>
+            </div>
+          </article>
+
+          <article id="education" class="card">
+            <div class="panel-label">Education</div>
+            <div class="panel-divider"></div>
+            <div class="resume-entry">
+              <div class="resume-head">
+                <h3>Haverford College</h3>
+                <div class="resume-date">2025 — 2029</div>
+              </div>
+              <div class="resume-sub">Bachelor of Science — Biophysics</div>
+              <div class="resume-loc">Haverford, PA</div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
   </div>
 </body>
 
