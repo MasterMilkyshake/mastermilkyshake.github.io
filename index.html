@@ -5,11 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Abhishek Pallepati</title>
+  <meta name="description"
+    content="Abhishek Pallepati — student interested in biophysics and biotechnology, with an emphasis on preventive medicine through pediatric genetics and emergency medicine through nanoparticle therapeutics." />
   <link rel="icon" href="https://mastermilkyshake.github.io/static/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
     rel="stylesheet" />
   <style>
     :root {
@@ -45,6 +47,7 @@
     }
 
     body {
+      position: relative;
       min-height: 100vh;
       font-family: var(--sans);
       color: var(--ink);
@@ -120,7 +123,7 @@
       font-size: 13px;
       font-weight: 700;
       white-space: nowrap;
-      transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+      transition: border-color .18s ease, background .18s ease, box-shadow .18s ease, outline-offset .18s ease;
     }
 
     .nav-link {
@@ -140,6 +143,14 @@
     .nav-link:hover,
     .button:hover {
       border-color: rgba(99, 91, 255, .28);
+      box-shadow: 0 0 0 1px rgba(99, 91, 255, .08);
+    }
+
+    .nav-link:focus-visible,
+    .button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-color: rgba(99, 91, 255, .4);
       box-shadow: 0 0 0 1px rgba(99, 91, 255, .08);
     }
 
@@ -201,7 +212,6 @@
       line-height: .92;
       margin-bottom: 0;
       color: #09192b;
-      white-space: nowrap;
     }
 
     .hero-copy p {
@@ -254,6 +264,7 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 18px;
+      min-width: 0;
     }
 
     .section {
@@ -286,6 +297,10 @@
       align-items: stretch;
     }
 
+    .split-bottom-spaced {
+      margin-top: 18px;
+    }
+
     .card {
       position: relative;
       overflow: hidden;
@@ -296,12 +311,14 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 14px 28px rgba(10, 37, 64, .04);
+      min-width: 0;
     }
 
     .card h3 {
       font-size: 26px;
       line-height: 1.04;
       margin-bottom: 10px;
+      overflow-wrap: anywhere;
     }
 
     .list {
@@ -333,6 +350,7 @@
       font-weight: 800;
       margin-bottom: 4px;
       line-height: 1.35;
+      overflow-wrap: anywhere;
     }
 
     .certs {
@@ -370,6 +388,7 @@
     .resume-entry {
       display: grid;
       gap: 10px;
+      min-width: 0;
     }
 
     .resume-stack {
@@ -387,13 +406,14 @@
       justify-content: space-between;
       gap: 18px;
       align-items: start;
+      min-width: 0;
     }
 
     .resume-head h3 {
       font-size: clamp(16px, 1.15vw, 17px);
       line-height: 1.16;
       margin-bottom: 0;
-      white-space: nowrap;
+      overflow-wrap: anywhere;
     }
 
     .resume-date {
@@ -401,6 +421,7 @@
       font-size: 14px;
       font-weight: 600;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .resume-sub {
@@ -509,7 +530,6 @@
 
       h1 {
         font-size: clamp(2rem, 11vw, 2.8rem);
-        white-space: normal;
       }
 
       .hero-copy p {
@@ -517,8 +537,10 @@
         font-size: 16px;
       }
 
-      .resume-head h3 {
-        white-space: nowrap;
+      .resume-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
       }
 
       .card {
@@ -543,17 +565,19 @@
 <body>
   <div class="page">
     <header class="site-header">
-      <nav class="nav" aria-label="Section navigation">
+      <nav class="nav" aria-label="Primary navigation">
         <a class="nav-link" href="https://www.youtube.com/@AbhishekPallepati" target="_blank"
-          rel="noreferrer">YouTube</a>
+          rel="noopener noreferrer">YouTube</a>
         <a class="nav-link" href="https://www.linkedin.com/in/abhishekpallepati/" target="_blank"
-          rel="noreferrer">LinkedIn</a>
-        <a class="nav-link" href="https://github.com/MasterMilkyshake" target="_blank" rel="noreferrer">GitHub</a>
+          rel="noopener noreferrer">LinkedIn</a>
+        <a class="nav-link" href="https://github.com/MasterMilkyshake" target="_blank"
+          rel="noopener noreferrer">GitHub</a>
         <a class="nav-link" href="https://mastermilkyshake.github.io/static/resume.pdf" target="_blank"
-          rel="noreferrer">Resume</a>
+          rel="noopener noreferrer">Resume</a>
         <a class="button primary" href="mailto:apallepati@haverford.edu">Contact</a>
       </nav>
     </header>
+
     <main>
       <section class="hero">
         <div class="hero-visual">
@@ -562,6 +586,7 @@
               class="profile-photo" />
           </div>
         </div>
+
         <div class="hero-copy">
           <h1>Abhishek Pallepati</h1>
           <p>
@@ -570,11 +595,13 @@
           </p>
         </div>
       </section>
+
       <section id="experience" class="section">
         <div class="cards split-top">
           <article class="card">
             <div class="panel-label">Experience</div>
             <div class="panel-divider"></div>
+
             <div class="resume-stack">
               <div class="resume-entry">
                 <div class="resume-head">
@@ -584,6 +611,7 @@
                 <div class="resume-sub">Coming Soon</div>
                 <div class="resume-loc">Coming Soon</div>
               </div>
+
               <div class="resume-entry">
                 <div class="resume-head">
                   <h3>Coming Soon</h3>
@@ -592,6 +620,7 @@
                 <div class="resume-sub">Coming Soon</div>
                 <div class="resume-loc">Coming Soon</div>
               </div>
+
               <div class="resume-entry">
                 <div class="resume-head">
                   <h3>Emergency Medical Technician</h3>
@@ -602,9 +631,11 @@
               </div>
             </div>
           </article>
+
           <article id="publications" class="card">
             <div class="panel-label">Publications</div>
             <div class="panel-divider"></div>
+
             <ul class="list">
               <li>
                 <strong>Coming Soon</strong>
@@ -621,10 +652,12 @@
             </ul>
           </article>
         </div>
-        <div class="cards split-bottom" style="margin-top: 18px;">
+
+        <div class="cards split-bottom split-bottom-spaced">
           <article id="certifications" class="card">
             <div class="panel-label">Certifications</div>
             <div class="panel-divider"></div>
+
             <div class="certs">
               <span class="cert">EMT</span>
               <span class="cert">BLS</span>
@@ -637,6 +670,7 @@
           <article id="education" class="card">
             <div class="panel-label">Education</div>
             <div class="panel-divider"></div>
+
             <div class="resume-entry">
               <div class="resume-head">
                 <h3>Haverford College</h3>
