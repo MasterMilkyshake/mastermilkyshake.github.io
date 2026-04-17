@@ -13,6 +13,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
         rel="stylesheet" />
+
     <style>
         :root {
             --ink: #0a2540;
@@ -40,20 +41,32 @@
             --radius-lg: 18px;
             --radius-md: 14px;
 
-            --shadow-sm: 0 6px 18px rgba(10, 37, 64, 0.04), 0 2px 6px rgba(10, 37, 64, 0.03);
-            --shadow-md: 0 18px 40px rgba(10, 37, 64, 0.08), 0 6px 18px rgba(10, 37, 64, 0.05);
+            --shadow-sm: 0 6px 18px rgba(10, 37, 64, 0.04),
+                0 2px 6px rgba(10, 37, 64, 0.03);
+            --shadow-md: 0 18px 40px rgba(10, 37, 64, 0.08),
+                0 6px 18px rgba(10, 37, 64, 0.05);
 
             --ease: cubic-bezier(.22, 1, .36, 1);
         }
 
-        * {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         html {
             scroll-behavior: smooth;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        ul,
+        li {
+            margin: 0;
         }
 
         body {
@@ -61,11 +74,20 @@
             min-height: 100vh;
             font-family: var(--sans);
             color: var(--ink);
-            background:
-                linear-gradient(180deg, #fdfefe 0%, #fbfdff 45%, #ffffff 100%);
+            background: linear-gradient(180deg, #fdfefe 0%, #fbfdff 45%, #ffffff 100%);
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
             overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
         }
 
         .hero-gradient {
@@ -92,7 +114,8 @@
                 radial-gradient(ellipse 55% 55% at 25% 80%, var(--g2) 0%, transparent 55%),
                 radial-gradient(ellipse 45% 45% at 50% 50%, var(--g5) 0%, transparent 55%),
                 linear-gradient(180deg, #d6f3ff 0%, #eaf3ff 100%);
-            background-size: 200% 200%, 220% 220%, 240% 240%, 220% 220%, 200% 200%, 100% 100%;
+            background-size: 200% 200%, 220% 220%, 240% 240%, 220% 220%, 200% 200%,
+                100% 100%;
             animation: meshDrift 22s ease-in-out infinite alternate;
             filter: saturate(1.03);
             opacity: 0.95;
@@ -135,16 +158,6 @@
                     45% 55%,
                     0% 0%;
             }
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
         }
 
         .page {
@@ -191,8 +204,8 @@
             justify-content: center;
             min-height: 40px;
             padding: 9px 18px;
-            border-radius: 999px;
             border: 1px solid transparent;
+            border-radius: 999px;
             font-family: var(--sans);
             font-size: 14px;
             font-weight: 600;
@@ -200,15 +213,15 @@
             white-space: nowrap;
             color: var(--ink);
             background: transparent;
-            transition:
-                color .22s var(--ease),
-                background .22s var(--ease),
-                border-color .22s var(--ease),
-                box-shadow .22s var(--ease),
-                opacity .22s var(--ease),
-                filter .22s var(--ease);
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
+            transition:
+                color 0.22s var(--ease),
+                background-color 0.22s var(--ease),
+                border-color 0.22s var(--ease),
+                box-shadow 0.22s var(--ease),
+                opacity 0.22s var(--ease),
+                filter 0.22s var(--ease);
         }
 
         .nav-link {
@@ -223,15 +236,32 @@
         }
 
         .button.primary {
-            color: #ffffff;
-            background: linear-gradient(180deg, #6867e8 0%, #5452d6 100%);
-            border-color: transparent;
+            z-index: 0;
+            overflow: hidden;
             padding: 9px 20px;
+            color: #ffffff;
+            border-color: transparent;
+            background: linear-gradient(180deg, #6867e8 0%, #5452d6 100%);
             box-shadow: none;
+            isolation: isolate;
+        }
+
+        .button.primary::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: inherit;
+            background: linear-gradient(180deg, #5452d6 0%, #4341b7 100%);
+            opacity: 0;
+            transition: opacity 0.22s var(--ease);
+        }
+
+        .button.primary:hover::before {
+            opacity: 1;
         }
 
         .button.primary:hover {
-            background: linear-gradient(180deg, #5452d6 0%, #4341b7 100%);
             box-shadow: none;
             filter: none;
         }
@@ -250,20 +280,20 @@
 
         .hero {
             position: relative;
+            z-index: 1;
             display: grid;
             grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
             align-items: center;
             gap: 42px;
             max-width: 705px;
             margin: 0 auto 10px;
-            padding: 38px 38px;
-            border-radius: var(--radius-xl);
+            padding: 38px;
             border: 1px solid rgba(10, 37, 64, 0.07);
+            border-radius: var(--radius-xl);
             background: rgba(255, 255, 255, 0.84);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             box-shadow: var(--shadow-md);
-            z-index: 1;
             opacity: 1;
             transform: none;
         }
@@ -286,8 +316,8 @@
 
         .profile-photo {
             width: 100%;
-            aspect-ratio: 1 / 1;
             height: auto;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
             border-radius: var(--radius-lg);
         }
@@ -311,7 +341,6 @@
         h1 {
             font-size: clamp(2.2rem, 4.2vw, 3.5rem);
             line-height: 1.02;
-            margin: 0;
             letter-spacing: -0.04em;
         }
 
@@ -320,7 +349,6 @@
             color: var(--ink-soft);
             font-size: clamp(15px, 1vw, 16px);
             line-height: 1.72;
-            margin: 0;
             font-weight: 400;
         }
 
@@ -331,9 +359,9 @@
         .cards {
             display: grid;
             gap: 24px;
+            width: 100%;
             max-width: 1140px;
             margin-inline: auto;
-            width: 100%;
         }
 
         .cards.split-top {
@@ -352,40 +380,40 @@
 
         .card {
             position: relative;
+            min-width: 0;
             overflow: hidden;
             padding: 34px 34px 32px;
-            border-radius: var(--radius-xl);
             border: 1px solid rgba(10, 37, 64, 0.07);
+            border-radius: var(--radius-xl);
             background: rgba(255, 255, 255, 0.9);
             box-shadow: var(--shadow-sm);
-            min-width: 0;
             opacity: 1;
             transform: none;
         }
 
         .card h3 {
+            margin: 0;
+            font-family: var(--sans);
             font-size: 17px;
             line-height: 1.35;
-            margin: 0;
-            letter-spacing: -0.02em;
-            font-family: var(--sans);
             font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .panel-label {
+            margin-bottom: 14px;
             color: var(--accent);
+            font-family: var(--sans);
             font-size: 12px;
             font-weight: 800;
             letter-spacing: 0.11em;
             text-transform: uppercase;
-            margin-bottom: 14px;
-            font-family: var(--sans);
         }
 
         .panel-divider {
             height: 1px;
-            background: linear-gradient(90deg, var(--line), rgba(230, 235, 241, 0.45));
             margin-bottom: 26px;
+            background: linear-gradient(90deg, var(--line), rgba(230, 235, 241, 0.45));
         }
 
         .resume-entry {
@@ -399,7 +427,7 @@
             gap: 22px;
         }
 
-        .resume-stack .resume-entry + .resume-entry {
+        .resume-stack .resume-entry+.resume-entry {
             padding-top: 22px;
             border-top: 1px solid rgba(230, 235, 241, 0.85);
         }
@@ -407,26 +435,26 @@
         .resume-head {
             display: flex;
             justify-content: space-between;
-            gap: 18px;
             align-items: baseline;
+            gap: 18px;
             min-width: 0;
         }
 
         .resume-head h3 {
+            margin: 0;
+            color: var(--ink);
             font-size: 16px;
             line-height: 1.35;
-            margin: 0;
-            letter-spacing: -0.01em;
             font-weight: 700;
-            color: var(--ink);
+            letter-spacing: -0.01em;
         }
 
         .resume-date {
+            flex-shrink: 0;
+            white-space: nowrap;
             color: var(--muted-soft);
             font-size: 13px;
             font-weight: 600;
-            white-space: nowrap;
-            flex-shrink: 0;
             letter-spacing: -0.01em;
         }
 
@@ -445,16 +473,17 @@
         }
 
         .list {
-            list-style: none;
             display: grid;
             gap: 0;
+            list-style: none;
+            padding: 0;
         }
 
         .list li {
-            padding: 18px 0;
-            border-top: 1px solid rgba(230, 235, 241, 0.85);
             display: grid;
             gap: 5px;
+            padding: 18px 0;
+            border-top: 1px solid rgba(230, 235, 241, 0.85);
         }
 
         .list li:first-child {
@@ -470,8 +499,8 @@
             display: block;
             color: var(--ink);
             font-size: 15px;
-            font-weight: 650;
             line-height: 1.45;
+            font-weight: 650;
             letter-spacing: -0.01em;
         }
 
@@ -491,8 +520,8 @@
         .cert {
             min-height: 34px;
             padding: 7px 14px;
-            border-radius: 10px;
             border: 1px solid var(--line);
+            border-radius: 10px;
             color: var(--ink-soft);
             font-size: 13px;
             letter-spacing: 0.01em;
@@ -526,9 +555,9 @@
 
             .hero {
                 gap: 28px;
+                max-width: 600px;
                 padding: 34px 32px;
                 text-align: center;
-                max-width: 600px;
             }
 
             .hero-copy {
@@ -569,8 +598,8 @@
                 position: static;
                 width: 100%;
                 max-width: 100%;
-                padding: 8px;
                 margin-bottom: 18px;
+                padding: 8px;
                 border-radius: 16px;
             }
 
@@ -591,9 +620,9 @@
             }
 
             .hero {
+                margin-top: 4px;
                 gap: 22px;
                 padding: 28px 22px;
-                margin-top: 4px;
                 border-radius: 18px;
             }
 
@@ -606,8 +635,8 @@
             }
 
             .hero-copy p {
-                font-size: 15px;
                 max-width: 36ch;
+                font-size: 15px;
                 line-height: 1.68;
             }
 
@@ -634,7 +663,7 @@
                 gap: 18px;
             }
 
-            .resume-stack .resume-entry + .resume-entry {
+            .resume-stack .resume-entry+.resume-entry {
                 padding-top: 18px;
             }
         }
@@ -665,14 +694,24 @@
         <header class="site-header">
             <nav class="nav" aria-label="Primary navigation">
                 <a class="nav-link" href="https://www.youtube.com/@AbhishekPallepati" target="_blank"
-                    rel="noopener noreferrer">YouTube</a>
+                    rel="noopener noreferrer">
+                    YouTube
+                </a>
                 <a class="nav-link" href="https://www.linkedin.com/in/abhishekpallepati/" target="_blank"
-                    rel="noopener noreferrer">LinkedIn</a>
+                    rel="noopener noreferrer">
+                    LinkedIn
+                </a>
                 <a class="nav-link" href="https://github.com/MasterMilkyshake" target="_blank"
-                    rel="noopener noreferrer">GitHub</a>
+                    rel="noopener noreferrer">
+                    GitHub
+                </a>
                 <a class="nav-link" href="https://mastermilkyshake.github.io/static/resume.pdf" target="_blank"
-                    rel="noopener noreferrer">Resume</a>
-                <a class="button primary" href="mailto:apallepati@haverford.edu">Contact</a>
+                    rel="noopener noreferrer">
+                    Resume
+                </a>
+                <a class="button primary" href="mailto:apallepati@haverford.edu">
+                    Contact
+                </a>
             </nav>
         </header>
 
@@ -688,9 +727,9 @@
                 <div class="hero-copy">
                     <h1>Abhishek Pallepati</h1>
                     <p>
-                        Student interested in biophysics and biotechnology, with an emphasis on preventive medicine
-                        through
-                        pediatric genetics and emergency medicine through nanoparticle therapeutics.
+                        Student interested in biophysics and biotechnology, with an emphasis
+                        on preventive medicine through pediatric genetics and emergency medicine
+                        through nanoparticle therapeutics.
                     </p>
                 </div>
             </section>
@@ -759,15 +798,25 @@
 
                         <div class="certs">
                             <a class="cert" href="https://mastermilkyshake.github.io/static/emt.pdf" target="_blank"
-                                rel="noopener noreferrer">EMT</a>
+                                rel="noopener noreferrer">
+                                EMT
+                            </a>
                             <a class="cert" href="https://mastermilkyshake.github.io/static/pals.pdf" target="_blank"
-                                rel="noopener noreferrer">PALS</a>
+                                rel="noopener noreferrer">
+                                PALS
+                            </a>
                             <a class="cert" href="https://mastermilkyshake.github.io/static/bls.pdf" target="_blank"
-                                rel="noopener noreferrer">BLS</a>
+                                rel="noopener noreferrer">
+                                BLS
+                            </a>
                             <a class="cert" href="https://mastermilkyshake.github.io/static/bls-i.pdf" target="_blank"
-                                rel="noopener noreferrer">BLS-I</a>
+                                rel="noopener noreferrer">
+                                BLS-I
+                            </a>
                             <a class="cert" href="https://mastermilkyshake.github.io/static/acls.pdf" target="_blank"
-                                rel="noopener noreferrer">ACLS</a>
+                                rel="noopener noreferrer">
+                                ACLS
+                            </a>
                         </div>
                     </article>
 
@@ -788,10 +837,6 @@
             </section>
         </main>
     </div>
-
-    <script>
-        (function () { })();
-    </script>
 </body>
 
 </html>
