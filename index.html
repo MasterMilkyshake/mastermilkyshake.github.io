@@ -447,6 +447,12 @@
             font-size: 13px;
             font-weight: 800;
             letter-spacing: 0.06em;
+            transition: filter .18s ease, border-color .18s ease;
+        }
+        
+        .cert:hover {
+            border-color: rgba(89, 87, 235, 0.26);
+            filter: brightness(0.97);
         }
 
         .panel-label {
@@ -808,11 +814,16 @@
                         <div class="panel-divider"></div>
 
                         <div class="certs">
-                            <span class="cert">EMT</span>
-                            <span class="cert">BLS</span>
-                            <span class="cert">BLS-I</span>
-                            <span class="cert">ACLS</span>
-                            <span class="cert">PALS</span>
+                            <a class="cert" href="https://mastermilkyshake.github.io/static/emt.pdf" target="_blank"
+                                rel="noopener noreferrer">EMT</a>
+                            <a class="cert" href="https://mastermilkyshake.github.io/static/bls.pdf" target="_blank"
+                                rel="noopener noreferrer">BLS</a>
+                            <a class="cert" href="https://mastermilkyshake.github.io/static/bls-i.pdf" target="_blank"
+                                rel="noopener noreferrer">BLS-I</a>
+                            <a class="cert" href="https://mastermilkyshake.github.io/static/acls.pdf" target="_blank"
+                                rel="noopener noreferrer">ACLS</a>
+                            <a class="cert" href="https://mastermilkyshake.github.io/static/pals.pdf" target="_blank"
+                                rel="noopener noreferrer">PALS</a>
                         </div>
                     </article>
 
