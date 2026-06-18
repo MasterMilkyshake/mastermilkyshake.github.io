@@ -5,9 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Abhishek Pallepati</title>
-    <meta name="description" content="Abhishek Pallepati – Student interested in biophysics and biotechnology, with an emphasis
-                        on preventive medicine through pediatric genetics and emergency medicine
-                        through nanoparticle therapeutics." />
+    <meta name="description"
+        content="Abhishek Pallepati – Student interested in biophysics and biotechnology, with an emphasis on preventive medicine through pediatric genetics and emergency medicine through nanoparticle therapeutics." />
     <link rel="icon" type="image/svg+xml" sizes="any" href="/static/icon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="/static/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,9 +26,6 @@
             --accent: #6a6ae7;
             --accent-deep: #5050c9;
             --accent-soft: #f1f1fc;
-            --bg: #ffffff;
-            --surface: #ffffff;
-            --max: 1140px;
             --display: "Sora", "Inter", "Segoe UI", sans-serif;
             --sans: "Inter", "Segoe UI", sans-serif;
 
@@ -39,9 +35,7 @@
             --g4: #ffd6a3;
             --g5: #7fd8ff;
 
-            --radius-xl: 22px;
             --radius-lg: 18px;
-            --radius-md: 14px;
 
             --shadow-sm: 0 6px 18px rgba(10, 37, 64, 0.04),
                 0 2px 6px rgba(10, 37, 64, 0.03);
@@ -165,30 +159,28 @@
         .page {
             position: relative;
             z-index: 1;
-            width: min(var(--max), calc(100% - 40px));
+            width: min(720px, calc(100% - 40px));
             margin: 0 auto;
-            padding: 14px 0 88px;
+            padding: 20px 0 88px;
         }
 
         .site-header {
             position: sticky;
-            top: 14px;
+            top: 12px;
             z-index: 20;
             display: flex;
             justify-content: center;
             align-items: center;
             width: fit-content;
             max-width: 100%;
-            margin: 0 auto 26px;
-            padding: 7px;
-            border: 1px solid rgba(255, 255, 255, 0.68);
-            border-radius: 20px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68));
-            backdrop-filter: blur(22px) saturate(180%);
-            -webkit-backdrop-filter: blur(22px) saturate(180%);
-            box-shadow:
-                0 18px 40px rgba(10, 37, 64, 0.11),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            margin: 0 auto 36px;
+            padding: 7px 8px;
+            border: 1px solid rgba(10, 37, 64, 0.07);
+            border-radius: var(--radius-lg);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 100%);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: var(--shadow-sm);
         }
 
         .menu-check {
@@ -208,7 +200,7 @@
         .nav {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 4px;
             justify-content: center;
             align-items: center;
         }
@@ -297,27 +289,19 @@
 
         main {
             display: grid;
-            gap: 24px;
+            gap: 0;
         }
 
         .hero {
             position: relative;
             z-index: 1;
-            display: grid;
-            grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 42px;
-            max-width: 705px;
-            margin: 0 auto 0;
-            padding: 38px;
-            border: 1px solid rgba(10, 37, 64, 0.07);
-            border-radius: var(--radius-xl);
-            background: rgba(255, 255, 255, 0.84);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            box-shadow: var(--shadow-md);
-            opacity: 1;
-            transform: none;
+            text-align: center;
+            gap: 24px;
+            margin: 0 0 48px;
+            padding: 0 8px;
         }
 
         .hero-visual {
@@ -327,13 +311,8 @@
         }
 
         .hero-card {
-            position: relative;
-            width: min(285px, 100%);
-            padding: 0;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            background: #fff;
-            box-shadow: 0 16px 34px rgba(10, 37, 64, 0.1);
+            width: min(220px, 72vw);
+            line-height: 0;
         }
 
         .profile-photo {
@@ -341,14 +320,23 @@
             height: auto;
             aspect-ratio: 1 / 1;
             object-fit: cover;
+            display: block;
             border-radius: var(--radius-lg);
+            background: #fff;
+            border: 4px solid #ffffff;
+            box-shadow:
+                0 16px 40px rgba(106, 106, 231, 0.14),
+                0 6px 20px rgba(10, 37, 64, 0.08),
+                0 0 0 1px rgba(10, 37, 64, 0.06);
         }
 
         .hero-copy {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            align-items: center;
+            gap: 14px;
             min-width: 0;
+            max-width: 52ch;
         }
 
         h1,
@@ -367,47 +355,105 @@
         }
 
         .hero-copy p {
-            max-width: 32ch;
             color: var(--ink-soft);
-            font-size: clamp(15px, 1vw, 16px);
-            line-height: 1.72;
+            font-size: clamp(15px, 1vw, 17px);
+            line-height: 1.75;
             font-weight: 400;
         }
 
-        .section {
-            padding: 0;
-        }
-
-        .cards {
+        .journey {
+            position: relative;
             display: grid;
-            gap: 24px;
+            gap: 0;
+            --journey-progress: 0;
+            --journey-axis: 20px;
+        }
+
+        .journey-line {
+            position: absolute;
+            left: var(--journey-axis);
+            top: var(--line-top, 0);
+            height: var(--line-height, 100%);
+            width: 2px;
+            margin-left: -1px;
+            pointer-events: none;
+        }
+
+        .journey-line-track,
+        .journey-line-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 100%;
-            max-width: 1140px;
-            margin-inline: auto;
+            border-radius: 2px;
         }
 
-        .cards.split-top {
-            grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
-            align-items: stretch;
+        .journey-line-track {
+            height: 100%;
+            background: rgba(230, 235, 241, 0.95);
         }
 
-        .cards.split-bottom {
-            grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.5fr);
-            align-items: stretch;
+        .journey-line-fill {
+            height: 100%;
+            background: linear-gradient(180deg,
+                    var(--accent) 0%,
+                    var(--g2) 35%,
+                    var(--g3) 65%,
+                    var(--g4) 100%);
+            transform: scaleY(var(--journey-progress));
+            transform-origin: top center;
+            will-change: transform;
         }
 
-        .split-bottom-spaced {
-            margin-top: 24px;
+        .journey-section {
+            position: relative;
+            display: grid;
+            grid-template-columns: 40px minmax(0, 1fr);
+            gap: 0 20px;
+            padding-bottom: 28px;
+        }
+
+        .journey-section:last-child {
+            padding-bottom: 0;
+        }
+
+        .journey-marker {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 28px;
+            z-index: 1;
+        }
+
+        .journey-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e6ebf1;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 1px rgba(10, 37, 64, 0.1);
+            flex-shrink: 0;
+            transition:
+                background 0.3s var(--ease),
+                box-shadow 0.3s var(--ease),
+                transform 0.3s var(--ease);
+        }
+
+        .journey-dot.is-active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--g3) 100%);
+            box-shadow: 0 0 0 1px rgba(106, 106, 231, 0.3), 0 4px 12px rgba(106, 106, 231, 0.35);
+            transform: scale(1.12);
         }
 
         .card {
             position: relative;
             min-width: 0;
             overflow: hidden;
-            padding: 34px 34px 32px;
+            padding: 28px 28px 26px;
             border: 1px solid rgba(10, 37, 64, 0.07);
-            border-radius: var(--radius-xl);
-            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.92);
             box-shadow: var(--shadow-sm);
             opacity: 1;
             transform: none;
@@ -423,7 +469,7 @@
         }
 
         .panel-label {
-            margin-bottom: 14px;
+            margin: 0 0 14px;
             color: var(--accent);
             font-family: var(--sans);
             font-size: 12px;
@@ -522,7 +568,7 @@
             color: var(--ink);
             font-size: 15px;
             line-height: 1.45;
-            font-weight: 650;
+            font-weight: 600;
             letter-spacing: -0.01em;
         }
 
@@ -550,55 +596,10 @@
         }
 
         .cert:hover {
-            color: var(--ink);
-            background: transparent;
-            border-color: var(--line-strong);
+            color: var(--accent-deep);
+            background: var(--accent-soft);
+            border-color: rgba(106, 106, 231, 0.25);
             box-shadow: none;
-        }
-
-        #experience .card:first-child {
-            min-height: 100%;
-        }
-
-        .reveal,
-        .reveal.is-visible {
-            opacity: 1;
-            transform: none;
-            transition: none;
-        }
-
-        @media (max-width: 1000px) {
-
-            .hero,
-            .cards.split-top,
-            .cards.split-bottom {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                gap: 28px;
-                max-width: 600px;
-                padding: 34px 32px;
-                text-align: center;
-            }
-
-            .hero-copy {
-                align-items: center;
-            }
-
-            .hero-copy p {
-                max-width: 42ch;
-            }
-
-            .hero-visual {
-                order: -1;
-            }
-
-            .cards.split-top,
-            .cards.split-bottom {
-                max-width: 780px;
-                margin-inline: auto;
-            }
         }
 
         @media (max-width: 720px) {
@@ -611,39 +612,27 @@
             }
 
             .page {
-                width: min(var(--max), calc(100% - 24px));
-                padding-top: 12px;
-                padding-bottom: 64px;
+                width: min(720px, calc(100% - 24px));
+                padding: 28px 0 64px;
             }
 
             .site-header {
-                position: static;
+                position: sticky;
+                top: 8px;
                 display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
                 justify-content: stretch;
                 justify-items: stretch;
                 align-items: center;
                 width: 100%;
                 max-width: 100%;
-                margin: 0 0 18px auto;
-                padding: 0;
-                border: 0;
-                border-radius: 20px;
-                background: transparent;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                box-shadow: none;
+                margin: 0 auto 28px;
+                padding: 8px 8px;
             }
 
             .site-header:has(.menu-check:checked) {
-                width: 100%;
-                padding: 8px;
-                border: 1px solid rgba(255, 255, 255, 0.68);
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68));
-                backdrop-filter: blur(22px) saturate(180%);
-                -webkit-backdrop-filter: blur(22px) saturate(180%);
-                box-shadow:
-                    0 18px 40px rgba(10, 37, 64, 0.11),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                padding: 10px 12px 14px;
             }
 
             .mobile-header-row {
@@ -651,8 +640,19 @@
                 align-items: center;
                 justify-content: flex-end;
                 gap: 8px;
+                grid-column: 1;
+                grid-row: 1;
                 width: 100%;
                 justify-self: stretch;
+            }
+
+            .nav {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .journey {
+                --journey-axis: 16px;
             }
 
             .mobile-contact {
@@ -673,18 +673,13 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                flex: 0 0 44px;
-                width: 44px;
-                height: 44px;
-                border: 1px solid rgba(255, 255, 255, 0.68);
-                border-radius: 14px;
+                flex: 0 0 40px;
+                width: 40px;
+                height: 40px;
+                border: 1px solid rgba(10, 37, 64, 0.08);
+                border-radius: 12px;
                 color: var(--ink);
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68));
-                backdrop-filter: blur(22px) saturate(180%);
-                -webkit-backdrop-filter: blur(22px) saturate(180%);
-                box-shadow:
-                    0 14px 30px rgba(10, 37, 64, 0.1),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                background: rgba(255, 255, 255, 0.6);
                 cursor: pointer;
                 -webkit-tap-highlight-color: transparent;
                 transition:
@@ -693,19 +688,18 @@
             }
 
             .site-header:has(.menu-check:checked) .menu-toggle {
-                border-color: rgba(10, 37, 64, 0.06);
-                background: rgba(255, 255, 255, 0.36);
-                box-shadow: none;
+                border-color: rgba(10, 37, 64, 0.1);
+                background: var(--accent-soft);
             }
 
             .menu-toggle:hover {
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68));
-                border-color: rgba(255, 255, 255, 0.68);
+                background: rgba(255, 255, 255, 0.9);
+                border-color: rgba(10, 37, 64, 0.12);
             }
 
             .site-header:has(.menu-check:checked) .menu-toggle:hover {
-                background: rgba(255, 255, 255, 0.36);
-                border-color: rgba(10, 37, 64, 0.08);
+                background: var(--accent-soft);
+                border-color: rgba(106, 106, 231, 0.2);
             }
 
             .menu-icon {
@@ -725,15 +719,15 @@
                     opacity 0.22s var(--ease);
             }
 
-            .menu-check:checked+.mobile-header-row .menu-toggle .menu-icon span:nth-child(1) {
+            .menu-check:checked~.mobile-header-row .menu-toggle .menu-icon span:nth-child(1) {
                 transform: translateY(6px) rotate(45deg);
             }
 
-            .menu-check:checked+.mobile-header-row .menu-toggle .menu-icon span:nth-child(2) {
+            .menu-check:checked~.mobile-header-row .menu-toggle .menu-icon span:nth-child(2) {
                 opacity: 0;
             }
 
-            .menu-check:checked+.mobile-header-row .menu-toggle .menu-icon span:nth-child(3) {
+            .menu-check:checked~.mobile-header-row .menu-toggle .menu-icon span:nth-child(3) {
                 transform: translateY(-6px) rotate(-45deg);
             }
 
@@ -777,14 +771,13 @@
             }
 
             .hero {
-                margin-top: 4px;
-                gap: 22px;
-                padding: 28px 22px;
-                border-radius: 18px;
+                margin-bottom: 36px;
+                gap: 20px;
+                padding: 0 4px;
             }
 
             .hero-card {
-                width: min(245px, 100%);
+                width: min(200px, 68vw);
             }
 
             h1 {
@@ -792,22 +785,28 @@
             }
 
             .hero-copy p {
-                max-width: 36ch;
                 font-size: 15px;
                 line-height: 1.68;
             }
 
-            .cards {
-                gap: 16px;
+            .journey-section {
+                grid-template-columns: 32px minmax(0, 1fr);
+                gap: 0 14px;
+                padding-bottom: 20px;
             }
 
-            .split-bottom-spaced {
-                margin-top: 16px;
+            .journey-marker {
+                padding-top: 24px;
+            }
+
+            .journey-dot {
+                width: 10px;
+                height: 10px;
             }
 
             .card {
-                padding: 24px 20px;
-                border-radius: 18px;
+                padding: 22px 18px;
+                border-radius: 16px;
             }
 
             .resume-head {
@@ -897,12 +896,13 @@
             </nav>
         </header>
 
-        <main>
-            <section class="hero reveal">
+        <main id="top">
+            <section class="hero">
                 <div class="hero-visual">
                     <div class="hero-card">
                         <img src="https://mastermilkyshake.github.io/static/profile.jpeg"
-                            alt="Portrait of Abhishek Pallepati" class="profile-photo" />
+                            alt="Portrait of Abhishek Pallepati" class="profile-photo" width="220" height="220"
+                            decoding="async" />
                     </div>
                 </div>
 
@@ -916,10 +916,18 @@
                 </div>
             </section>
 
-            <section id="experience" class="section">
-                <div class="cards split-top">
-                    <article class="card reveal">
-                        <div class="panel-label">Experience</div>
+            <div class="journey">
+                <div class="journey-line" aria-hidden="true">
+                    <div class="journey-line-track"></div>
+                    <div class="journey-line-fill"></div>
+                </div>
+
+                <section id="experience" class="journey-section">
+                    <div class="journey-marker" aria-hidden="true">
+                        <span class="journey-dot"></span>
+                    </div>
+                    <article class="card">
+                        <h2 class="panel-label">Experience</h2>
                         <div class="panel-divider"></div>
 
                         <div class="resume-stack">
@@ -951,9 +959,33 @@
                             </div>
                         </div>
                     </article>
+                </section>
 
-                    <article id="publications" class="card reveal">
-                        <div class="panel-label">Publications</div>
+                <section id="education" class="journey-section">
+                    <div class="journey-marker" aria-hidden="true">
+                        <span class="journey-dot"></span>
+                    </div>
+                    <article class="card">
+                        <h2 class="panel-label">Education</h2>
+                        <div class="panel-divider"></div>
+
+                        <div class="resume-entry">
+                            <div class="resume-head">
+                                <h3>University of Southern California</h3>
+                                <div class="resume-date">2025 — 2029</div>
+                            </div>
+                            <div class="resume-sub">Bachelor of Science — Biochemistry</div>
+                            <div class="resume-loc">Los Angeles, CA</div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="publications" class="journey-section">
+                    <div class="journey-marker" aria-hidden="true">
+                        <span class="journey-dot"></span>
+                    </div>
+                    <article class="card">
+                        <h2 class="panel-label">Publications</h2>
                         <div class="panel-divider"></div>
 
                         <ul class="list">
@@ -971,11 +1003,14 @@
                             </li>
                         </ul>
                     </article>
-                </div>
+                </section>
 
-                <div class="cards split-bottom split-bottom-spaced">
-                    <article id="certifications" class="card reveal">
-                        <div class="panel-label">Certifications</div>
+                <section id="certifications" class="journey-section">
+                    <div class="journey-marker" aria-hidden="true">
+                        <span class="journey-dot"></span>
+                    </div>
+                    <article class="card">
+                        <h2 class="panel-label">Certifications</h2>
                         <div class="panel-divider"></div>
 
                         <div class="certs">
@@ -1005,24 +1040,93 @@
                             </a>
                         </div>
                     </article>
-
-                    <article id="education" class="card reveal">
-                        <div class="panel-label">Education</div>
-                        <div class="panel-divider"></div>
-
-                        <div class="resume-entry">
-                            <div class="resume-head">
-                                <h3>University of Southern California</h3>
-                                <div class="resume-date">2025 — 2029</div>
-                            </div>
-                            <div class="resume-sub">Bachelor of Science — Biochemistry</div>
-                            <div class="resume-loc">Los Angeles, CA</div>
-                        </div>
-                    </article>
-                </div>
-            </section>
+                </section>
+            </div>
         </main>
     </div>
+
+    <script>
+        (function () {
+            var journey = document.querySelector(".journey");
+            if (!journey) return;
+
+            var dots = journey.querySelectorAll(".journey-dot");
+            var menuCheck = document.getElementById("menu-check");
+            var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            function positionLine() {
+                if (!dots.length) return { lineTop: 0, lineHeight: 0 };
+
+                var journeyRect = journey.getBoundingClientRect();
+                var firstRect = dots[0].getBoundingClientRect();
+                var lastRect = dots[dots.length - 1].getBoundingClientRect();
+                var lineTop = firstRect.top - journeyRect.top + firstRect.height / 2;
+                var lineBottom = lastRect.top - journeyRect.top + lastRect.height / 2;
+                var lineHeight = Math.max(lineBottom - lineTop, 0);
+
+                journey.style.setProperty("--line-top", lineTop.toFixed(2) + "px");
+                journey.style.setProperty("--line-height", lineHeight.toFixed(2) + "px");
+
+                return { lineTop: lineTop, lineHeight: lineHeight };
+            }
+
+            function updateJourney() {
+                var viewportHeight = window.innerHeight;
+                var scrollY = window.scrollY;
+                var journeyRect = journey.getBoundingClientRect();
+                var lineMetrics = positionLine();
+                var pageEnd = document.documentElement.scrollHeight - viewportHeight;
+
+                var journeyTop = scrollY + journeyRect.top;
+                var lineStart = journeyTop + lineMetrics.lineTop - viewportHeight * 0.3;
+                var lineEnd = Math.max(pageEnd, lineStart + 1);
+                var progress = (scrollY - lineStart) / (lineEnd - lineStart);
+                progress = Math.min(1, Math.max(0, progress));
+
+                journey.style.setProperty("--journey-progress", progress.toFixed(4));
+
+                var fillBottom = lineMetrics.lineTop + lineMetrics.lineHeight * progress;
+
+                dots.forEach(function (dot) {
+                    var dotRect = dot.getBoundingClientRect();
+                    var dotCenterY = dotRect.top - journeyRect.top + dotRect.height / 2;
+                    dot.classList.toggle("is-active", fillBottom >= dotCenterY - 1);
+                });
+            }
+
+            if (reducedMotion) {
+                positionLine();
+                journey.style.setProperty("--journey-progress", "1");
+                dots.forEach(function (dot) {
+                    dot.classList.add("is-active");
+                });
+            } else {
+                var ticking = false;
+
+                function onScroll() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function () {
+                            updateJourney();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }
+
+                window.addEventListener("scroll", onScroll, { passive: true });
+                window.addEventListener("resize", onScroll, { passive: true });
+                updateJourney();
+            }
+
+            if (menuCheck) {
+                journey.closest(".page").querySelectorAll(".nav a").forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        menuCheck.checked = false;
+                    });
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>
